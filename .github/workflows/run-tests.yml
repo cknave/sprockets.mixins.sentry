@@ -37,13 +37,13 @@ jobs:
           coverage run -m unittest
           coverage report
           coverage xml -o ./coverage.xml
-      - name: Send coverage to codecov.io
-        uses: codecov/codecov-action@v1.3.2
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
-          file: ./coverage.xml
-          flags: unittests
-          fail_ci_if_error: true
+#      - name: Send coverage to codecov.io
+#        uses: codecov/codecov-action@v1.3.2
+#        with:
+#          token: ${{secrets.CODECOV_TOKEN}}
+#          file: ./coverage.xml
+#          flags: unittests
+#          fail_ci_if_error: true
       - name: Save coverage report
         if: ${{ matrix.python-version == '3.9' }}
         uses: actions/upload-artifact@v2
